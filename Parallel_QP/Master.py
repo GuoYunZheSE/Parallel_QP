@@ -10,15 +10,15 @@ s=socket.socket()
 s.bind(ip_port)
 s.listen(5)
 Count=1
-Number=4#Node Number
+
 print('Waiting For Connection...')
 while True: 
     conn,addr=s.accept()
     Node=Threadify_Nodes(conn,str(addr[0]),Count)
     Count+=1
     Global.Node_List.append(Node)
-    if Count==Number:
-        for i in range(Number):
+    if Count==Global.Node_Number:
+        for i in range(Global.Node_Number):
             Global.Node_List[i].daemon(True)
             Global.Node_List[i].start()
 

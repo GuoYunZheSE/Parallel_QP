@@ -15,7 +15,7 @@ class Threadify_Nodes(threading.Thread):
         while True:
             try:
                 #Connecte Successfully
-                Welcom_msg='Welcome! Your IP address is: '+str(self.Node_IP)
+                Welcom_msg='Welcome! Your IP address is: '+str(self.Node_IP)+'Your Node ID is: '+str(self.Node_NO)
                 self.Node_Socket.send(bytes(Welcom_msg,encoding='utf8'))
                 msg1='Now I am going to assign partitions to you'
                 self.Node_Socket.send(bytes(msg1,encoding='utf8'))
