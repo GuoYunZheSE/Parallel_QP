@@ -2,13 +2,15 @@ import threading
 import subprocess
 import time
 import Global
-class Threadify_Nodes(threading.Thread):
-    """description of class"""
+from multiprocessing import Process
+class NewProcess(Process):
+    """Inherit of class Process and creat a new class NewProcess"""
     def __init__(self, Node_Socket,Node_IP,Node_NO):
+        print('Creat process successfully, you are the %s process'%(Global.Node_Connected))
         self.Node_Socket=Node_Socket
         self.Node_IP=Node_IP
         self.Node_NO=Node_NO
-        threading.Thread.__init__(self)
+        super().__init__()
 
     def run(self):
         print('Start',self.Node_IP)

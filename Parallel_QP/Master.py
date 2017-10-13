@@ -1,7 +1,7 @@
 import socket
 import subprocess
 import Global
-from Threadify_Nodes import Threadify_Nodes
+from Processify_Nodes import NewProcess
 
 
 ip_port=('127.0.0.1',9999)
@@ -9,9 +9,9 @@ Node_List=[]
 s=socket.socket()
 s.bind(ip_port)
 s.listen(5)
-Count=1
-
+Global.Node_Connected=0
 print('Waiting For Connection...')
+'''
 while True:
     conn,addr=s.accept()
     while True:
@@ -42,13 +42,12 @@ while True:
 '''
 while True: 
     conn,addr=s.accept()
-    Node=Threadify_Nodes(conn,str(addr[0]),Count)
-    Count+=1
+    Node=NewProcess(conn,str(addr[0]),Global.Node_Connected)
     Global.Node_List.append(Node)
-    if Count==Global.Node_Number:
+    Global.Node_Connected+=1
+    if Global.Node_Connected==Global.Node_Number:
         for i in range(Global.Node_Number):
             Global.Node_List[i].daemon(True)
             Global.Node_List[i].start()
 
 conn.close()
-'''
