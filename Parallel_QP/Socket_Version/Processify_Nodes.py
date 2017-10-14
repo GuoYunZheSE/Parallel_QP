@@ -6,10 +6,12 @@ from multiprocessing import Process
 class NewProcess(Process):
     """Inherit of class Process and creat a new class NewProcess"""
     def __init__(self, Node_Socket,Node_IP,Node_NO):
-        print('Creat process successfully, you are the %s process'%(Global.Node_Connected))
+        print('Creat process successfully, the %s process has been created'%(Global.Node_Connected))#Message for master
         self.Node_Socket=Node_Socket
         self.Node_IP=Node_IP
         self.Node_NO=Node_NO
+        Welcom_msg='Welcome! Your IP address is: '+str(self.Node_IP)+'Your Node ID is: '+str(self.Node_NO)
+        self.Node_Socket.send(bytes(Welcom_msg,encoding='utf8'))
         super().__init__()
 
     def run(self):
@@ -18,8 +20,6 @@ class NewProcess(Process):
         while True:
             try:
                 #Connecte Successfully
-                Welcom_msg='Welcome! Your IP address is: '+str(self.Node_IP)+'Your Node ID is: '+str(self.Node_NO)
-                self.Node_Socket.send(bytes(Welcom_msg,encoding='utf8'))
                 msg1='Now I am going to assign partitions to you'
                 self.Node_Socket.send(bytes(msg1,encoding='utf8'))
 

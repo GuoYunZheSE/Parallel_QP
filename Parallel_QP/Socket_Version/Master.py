@@ -1,10 +1,11 @@
 import socket
 import subprocess
 import Global
+import multiprocessing
 from Processify_Nodes import NewProcess
 
 
-ip_port=('127.0.0.1',9999)
+ip_port=('192.168.2.100',9999)
 Node_List=[]
 s=socket.socket()
 s.bind(ip_port)
@@ -47,7 +48,7 @@ while True:
     Global.Node_Connected+=1
     if Global.Node_Connected==Global.Node_Number:
         for i in range(Global.Node_Number):
-            Global.Node_List[i].daemon(True)
+            Global.Node_List[i].Daemon(True)
             Global.Node_List[i].start()
 
 conn.close()

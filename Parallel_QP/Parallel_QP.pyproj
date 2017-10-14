@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>f4fff7e1-6642-4b76-9cc8-e7d8a3f04b00</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Master.py</StartupFile>
+    <StartupFile>RPC_Version\Server.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,16 +21,29 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Global.py">
+    <Compile Include="RPC_Version\Client.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Master.py" />
-    <Compile Include="Node.py">
+    <Compile Include="RPC_Version\Handler.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Processify_Nodes.py">
+    <Compile Include="RPC_Version\Server.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Socket_Version\Global.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Socket_Version\Master.py" />
+    <Compile Include="Socket_Version\Node.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Socket_Version\Processify_Nodes.py">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="RPC_Version\" />
+    <Folder Include="Socket_Version\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
