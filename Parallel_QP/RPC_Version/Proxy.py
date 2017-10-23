@@ -20,11 +20,15 @@ class RPCProxy(object):
 
 # 远程连接并且调用
 if __name__ == '__main__':
-
+    #仅在实验时直接运行此程序
     from multiprocessing.connection import Client
-    rpc_client = Client(('localhost', 17000), authkey=bytes('tab_space',encoding='utf8'))
-
-    proxy = RPCProxy(rpc_client)
-    print (proxy.add(2,3))
-
-    print (proxy.printdict(**{"tab_space":"rpc", "github":"https://github.com/csdz"}))
+    try:
+        rpc_client_1 = Client(('192.168.2.100', 17000), authkey=bytes('Node1',encoding='utf8'))
+    except Exception as e:
+        print(e)
+    rpc_client_2 = Client(('192.168.2.101', 17000), authkey=bytes('Node2',encoding='utf8'))
+    Node1_proxy = RPCProxy(rpc_client_1)
+    Node2_proxy = RPCProxy(rpc_client_2)
+    print (Node1_proxy.add(2,3))
+    print (Node1_proxy.printdict(**{"Node1":"rpc", "github":"https://github.com/GuoYunZheSE/Parallel_QP"}))
+    print (Node2_proxy.add(2,3))

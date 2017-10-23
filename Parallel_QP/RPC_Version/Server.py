@@ -22,7 +22,7 @@ if __name__ == '__main__':
 
     def printdict(**kwargs):
         cnt = 0
-        for k, v in kwargs.iteritems():
+        for k, v in kwargs.items():
             print(''.join(['"', str(k), '":"', str(v), '"']))
             cnt += 1
         return cnt
@@ -35,4 +35,4 @@ if __name__ == '__main__':
     rpc_handler.register_function(printdict)
 
     # 运行server
-    rpc_server(rpc_handler, ('localhost', 17000), authkey=bytes('tab_space',encoding='utf8'))
+    rpc_server(rpc_handler, ('192.168.2.100', 17000), authkey=bytes('Node_0',encoding='utf8'))
