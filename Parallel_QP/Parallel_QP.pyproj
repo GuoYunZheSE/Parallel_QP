@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>f4fff7e1-6642-4b76-9cc8-e7d8a3f04b00</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>RPC_Version\Run.py</StartupFile>
+    <StartupFile>RPC_Version\Server.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
