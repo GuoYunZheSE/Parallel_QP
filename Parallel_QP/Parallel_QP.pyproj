@@ -48,6 +48,9 @@
     <Folder Include="RPC_Version\" />
     <Folder Include="Socket_Version\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="non_base_row.cpp" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
        Visual Studio and specify your pre- and post-build commands in

@@ -41,5 +41,5 @@ if __name__ == '__main__':
     rpc_handler.register_function(printdict)
 
     # 运行server
-    RunQP()
-   # rpc_server(rpc_handler, ('192.168.2.100', 17000), authkey=bytes('Node_0',encoding='utf8'))
+
+    rpc_server(rpc_handler, ('192.168.2.100', 17000), authkey=bytes('Node_0',encoding='utf8'))
