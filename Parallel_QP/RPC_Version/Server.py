@@ -42,4 +42,4 @@ if __name__ == '__main__':
 
     # 运行server
 
-    rpc_server(rpc_handler, ('192.168.2.100', 17000), authkey=bytes('Node_0',encoding='utf8'))
+    rpc_server(rpc_handler, ('192.168.2.102', 17000), authkey=bytes('Node_0',encoding='utf8'))
